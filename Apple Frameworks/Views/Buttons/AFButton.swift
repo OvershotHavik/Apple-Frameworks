@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+
+struct AFButton: View {
+    var title : String
+    var body: some View {
+        Text(title)
+    
+    }
+}
+
+/*
+//Original button:
 struct AFButton: View {
     var title : String
     var body: some View {
@@ -19,6 +30,7 @@ struct AFButton: View {
             .cornerRadius(10)
     }
 }
+*/
 
 struct AFButton_Previews: PreviewProvider {
     static var previews: some View {

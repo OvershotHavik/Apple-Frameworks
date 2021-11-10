@@ -54,8 +54,11 @@ struct LearnMoreButtonView: View{
         Button {
             isShowingSafariView = true
         } label: {
-            AFButton(title: "Learn More")
+            Label("Learn More", systemImage: "book.fill")
         }
+        .buttonStyle(.borderedProminent)
+        .controlSize(.large)
+//        .foregroundColor(.yellow)
+//        .tint(.red)
     }
-    
 }
