@@ -14,7 +14,7 @@ struct DetailView: View {
     
     var body: some View {
         VStack{
-            ExitButtonView(isShowingDetailView: $isShowingDetailView)
+//            ExitButtonView(isShowingDetailView: $isShowingDetailView)
                         
             Spacer()
 

@@ -156,8 +156,8 @@
 		B392B70C273C686500496B22 /* FrameworkGridView */ = {
 			isa = PBXGroup;
 			children = (
-				B392B703273C58B300496B22 /* FrameworkGridViewModel.swift */,
 				B392B6FD273C371F00496B22 /* FrameworkGridView.swift */,
+				B392B703273C58B300496B22 /* FrameworkGridViewModel.swift */,
 			);
 			path = FrameworkGridView;
 			sourceTree = "<group>";
