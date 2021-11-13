@@ -10,7 +10,6 @@ import SwiftUI
 struct DetailView: View {
     var framework: Framework
     @Binding var isShowingDetailView : Bool
-    @State private var isShowingSafariView = false
     
     var body: some View {
         VStack{
@@ -26,16 +25,10 @@ struct DetailView: View {
                 .font(.body)
             
             Spacer()
-            
-            LearnMoreButtonView(isShowingSafariView: $isShowingSafariView)
+
+            LearnMoreButtonViewLink(urlString: framework.urlString)
         }
         .padding()
-        
-        .fullScreenCover(isPresented: $isShowingSafariView) {
-            if let safeURL = framework.urlString{
-                SafariView(url: URL(string: safeURL) ?? URL(string: "www.apple.com")!)
-            }
-        }
     }
 }
 
@@ -48,17 +41,15 @@ struct DetailView_Previews: PreviewProvider {
 
 
 //MARK: - Learn More Button
-struct LearnMoreButtonView: View{
-    @Binding var isShowingSafariView: Bool
+struct LearnMoreButtonViewLink: View{
+    var urlString: String
+    
     var body: some View{
-        Button {
-            isShowingSafariView = true
-        } label: {
+        Link(destination: URL(string: urlString) ?? URL(string: "https://www.apple.com")!) {
             Label("Learn More", systemImage: "book.fill")
         }
         .buttonStyle(.borderedProminent)
         .controlSize(.large)
-//        .foregroundColor(.yellow)
-//        .tint(.red)
+        .tint(.blue)
     }
 }
