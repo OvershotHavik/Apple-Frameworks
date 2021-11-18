@@ -8,25 +8,25 @@
 import SwiftUI
 
 struct DetailView: View {
-    var framework: Framework
-    @Binding var isShowingDetailView : Bool
+    @ObservedObject var viewModel: DetailVM
+
     
     var body: some View {
         VStack{
-//            ExitButtonView(isShowingDetailView: $isShowingDetailView)
+//            ExitButtonView(isShowingDetailView: $viewModel.isShowingDetailView.wrappedValue)
                         
             Spacer()
 
-            FrameworkTitleView(framework: framework)
+            FrameworkTitleView(framework: viewModel.framework)
             
             Spacer()
             
-            Text(framework.description)
+            Text(viewModel.framework.description)
                 .font(.body)
             
             Spacer()
 
-            LearnMoreButtonViewLink(urlString: framework.urlString)
+            LearnMoreButtonViewLink(urlString: viewModel.framework.urlString)
         }
         .padding()
     }
@@ -34,7 +34,8 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(framework: MockData.sampleFramework, isShowingDetailView: .constant(false))
+        DetailView(viewModel: DetailVM(framework: MockData.sampleFramework, isShowingDetailView: .constant(false)))
+//        DetailView(framework: MockData.sampleFramework, isShowingDetailView: .constant(false))
             .preferredColorScheme(.dark)
     }
 }

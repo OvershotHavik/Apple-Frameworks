@@ -15,8 +15,8 @@ struct FrameworkGridView: View {
         NavigationView{
             List {
                 ForEach(MockData.frameworks) { framework in
-                    NavigationLink(destination: DetailView(framework: framework,
-                                                           isShowingDetailView: $viewModel.isShowingDetailView)){
+                    NavigationLink(destination: DetailView(viewModel: DetailVM(framework: framework,
+                                                                               isShowingDetailView: $viewModel.isShowingDetailView))){
                         FrameworkTitleView(framework: framework) // determines what is in the list and what responds to the tap
                     }
                 }
